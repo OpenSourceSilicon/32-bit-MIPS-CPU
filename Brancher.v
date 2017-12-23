@@ -14,6 +14,6 @@ module Brancher #(parameter WIDTH=32)
    wire 	      Equal;
 
    assign Equal  = (RD1D==RD2D)?1'b1:1'b0;
-   assign PCSrcD = Equal&BranchED + BranchNED&(!Equal) + Branch2RegD + Branch2ValueD;
+   assign PCSrcD = (Equal&BranchED)|(BranchNED&(~Equal))|Branch2RegD|Branch2ValueD;
    
 endmodule // Brancher

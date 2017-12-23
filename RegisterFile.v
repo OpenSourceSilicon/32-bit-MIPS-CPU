@@ -53,7 +53,7 @@ module RegisterFile #(parameter NO_OF_REG=32,REG_ADDRESS_WIDTH=5,WIDTH=32)
 	REG[31] = 32'b00000000000000000000000000000000;
      end // initial begin
    
-   always @(posedge clk)
+   always @(negedge clk)
      begin
 	if(WE3)
 	  REG[A3]=WD3;

@@ -62,6 +62,10 @@ module top_cpu #(parameter WIDTH=32)
   output 	     StallD,
   output 	     ForwardAD,
   output 	     ForwardBD,
+  output         ForwardADN1,
+  output         ForwardBDN1,
+  output         ForwardADN2,
+  output         ForwardBDN2,
   output 	     FlushE,
   output [1:0] 	     ForwardAE,
   output [1:0] 	     ForwardBE,
@@ -146,7 +150,13 @@ module top_cpu #(parameter WIDTH=32)
 			   // Inputs
 			   .ForwardAD		(ForwardAD),
 			   .ForwardBD		(ForwardBD),
+			   .ForwardADN1		(ForwardADN1),
+			   .ForwardBDN1		(ForwardBDN1),
+			   .ForwardADN2		(ForwardADN2),
+			   .ForwardBDN2		(ForwardBDN2),
 			   .ALUOutM		(ALUOutM[WIDTH-1:0]),
+			   .ALUOutE		(ALUOutE[WIDTH-1:0]),
+			   .ResultW		(ResultW[WIDTH-1:0]),
 			   .RD1			(RD1[WIDTH-1:0]),
 			   .RD2			(RD2[WIDTH-1:0]));
    
@@ -325,6 +335,10 @@ module top_cpu #(parameter WIDTH=32)
 			 .StallD		(StallD),
 			 .ForwardAD		(ForwardAD),
 			 .ForwardBD		(ForwardBD),
+			 .ForwardADN1		(ForwardADN1),
+			 .ForwardBDN1		(ForwardBDN1),
+			 .ForwardADN2		(ForwardADN2),
+			 .ForwardBDN2		(ForwardBDN2),
 			 .FlushE		(FlushE),
 			 .ForwardAE		(ForwardAE[1:0]),
 			 .ForwardBE		(ForwardBE[1:0]),
@@ -340,5 +354,9 @@ module top_cpu #(parameter WIDTH=32)
 			 .RegWriteM		(RegWriteM),
 			 .WriteRegW		(WriteRegW[4:0]),
 			 .RegWriteW		(RegWriteW),
-			 .PCSrcD		(PCSrcD));
+			 .PCSrcD		(PCSrcD),
+			 .BranchED		(BranchED),
+			 .BranchNED		(BranchNED),
+			 .Branch2RegD		(Branch2RegD),
+			 .Branch2ValueD		(Branch2ValueD));
 endmodule // top_cpu
